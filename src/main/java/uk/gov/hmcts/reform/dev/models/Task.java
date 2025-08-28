@@ -1,9 +1,6 @@
 package uk.gov.hmcts.reform.dev.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,14 +13,17 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@Table(name = "tasks", schema = "core")
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String caseNumber;
     private String title;
     private String description;
     private String status;
+    @Column(updatable = false)
     private LocalDateTime createdDate;
+    private LocalDateTime dueDate;
 }

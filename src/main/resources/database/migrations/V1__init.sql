@@ -16,6 +16,7 @@ CREATE TABLE core.tasks (
     case_number TEXT NOT NULL,
     title TEXT NOT NULL,
     description TEXT,
-    status TEXT,
-    created_date TIMESTAMP NOT NULL
+    status TEXT NOT NULL,
+    created_date TIMESTAMP DEFAULT NOW(),
+    due_date TIMESTAMP NOT NULL
 );
