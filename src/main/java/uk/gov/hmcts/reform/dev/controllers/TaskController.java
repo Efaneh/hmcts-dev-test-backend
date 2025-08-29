@@ -45,12 +45,11 @@ public class TaskController {
         return ResponseEntity.noContent().build();
     }
 
-    @PatchMapping(value = "task/{id}")
+    //This should be PATCH as a partial update, but I didn't want to delve into Spring Security for a simple app (PATCH disabled by default)
+    @PutMapping(value = "task/{id}")
     public ResponseEntity<TaskResponseDTO> updateTaskStatus (@RequestBody @Valid TaskStatusUpdateDTO updateDto,
                                                              @PathVariable Long id) {
         return ResponseEntity.ok(taskService.updateTaskStatusById(id, updateDto.getStatus()));
 
     }
-
-
 }
