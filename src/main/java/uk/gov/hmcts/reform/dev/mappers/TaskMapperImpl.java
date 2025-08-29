@@ -14,6 +14,7 @@ public class TaskMapperImpl implements TaskMapper {
         taskEntity.setCaseNumber(dto.getCaseNumber());
         taskEntity.setTitle(dto.getTitle());
         taskEntity.setDescription(dto.getDescription());
+        taskEntity.setStatus(dto.getStatus());
         taskEntity.setDueDate(dto.getDueDate());
         return taskEntity;
     }

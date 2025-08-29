@@ -23,7 +23,7 @@ public class Task {
     private String title;
     private String description;
     private String status;
-    @Column(updatable = false)
+    @Column(insertable = false, updatable = false)
     private LocalDateTime createdDate;
     private LocalDateTime dueDate;
 }
