@@ -101,15 +101,17 @@ public class TaskServiceTest {
 
     @Test
     void updateTaskStatusShouldSaveAndReturnDTOWhenTaskFound() {
-        Task task = new Task();
+        Task task = spy(new Task());
         TaskResponseDTO dto = new TaskResponseDTO();
+        String newStatus = "newStatus";
 
         when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
         when(taskRepository.save(task)).thenReturn(task);
         when(taskMapper.toResponseDTO(task)).thenReturn(dto);
 
-        TaskResponseDTO result = taskService.updateTaskStatusById(1L, "InProgress");
+        TaskResponseDTO result = taskService.updateTaskStatusById(1L, newStatus);
 
+        verify(task).setStatus(newStatus);
         assertEquals(dto, result);
     }
 

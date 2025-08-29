@@ -22,8 +22,10 @@ public class TaskMapperImpl implements TaskMapper {
     public TaskResponseDTO toResponseDTO(Task taskEntity) {
         TaskResponseDTO dto = new TaskResponseDTO();
         dto.setId(taskEntity.getId());
+        dto.setCaseNumber(taskEntity.getCaseNumber());
         dto.setTitle(taskEntity.getTitle());
         dto.setDescription(taskEntity.getDescription());
+        dto.setStatus(taskEntity.getStatus());
         dto.setDueDate(taskEntity.getDueDate());
         return dto;
     }

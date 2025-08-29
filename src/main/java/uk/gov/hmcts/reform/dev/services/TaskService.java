@@ -45,6 +45,7 @@ public class TaskService {
 
     public TaskResponseDTO updateTaskStatusById(Long id, String status) {
         Task task = safelyGetTaskById(id);
+        task.setStatus(status);
         taskRepository.save(task);
         return taskMapper.toResponseDTO(task);
     }
